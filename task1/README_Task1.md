@@ -1,4 +1,4 @@
-###Report 
+## Report 
 
 Using *ConcurrentHashMap* instead of simple *HashMap* resolve the problem, but using *Collections.synchronizeMap()* doesn't help.
 
