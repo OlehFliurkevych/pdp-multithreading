@@ -16,9 +16,9 @@ public class BlockingObjectPool<E> {
 
   private final Lock lock = new ReentrantLock();
 
-  private final Condition fullPool = lock.newCondition();
+  private final Condition fullCondition = lock.newCondition();
 
-  private final Condition emptyPool = lock.newCondition();
+  private final Condition emptyCondition = lock.newCondition();
 
   public BlockingObjectPool(int size) {
     this.size = size;
@@ -33,9 +33,9 @@ public class BlockingObjectPool<E> {
     lock.lock();
     try {
       while (objects.isEmpty()) {
-        emptyPool.await();
+        emptyCondition.await();
       }
-      fullPool.signal();
+      fullCondition.signal();
       return objects.poll();
     } finally {
       lock.unlock();
@@ -51,9 +51,9 @@ public class BlockingObjectPool<E> {
     lock.lock();
     try {
       while (objects.size() == size) {
-        fullPool.await();
+        fullCondition.await();
       }
-      emptyPool.signal();
+      emptyCondition.signal();
       objects.add(object);
       System.out.println("An object was added to the pool"
         + objects);
