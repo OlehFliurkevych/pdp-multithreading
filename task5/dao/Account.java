@@ -7,22 +7,22 @@ import java.util.List;
  */
 public class Account {
 
-  private User user;
-  private List<Currency> currencies;
+  private String accountNumber;
+  private List<CurrencyAccount> currencyAccounts;
 
-  public User getUser() {
-    return user;
+  public String getAccountNumber() {
+    return accountNumber;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
   }
 
-  public List<Currency> getCurrencies() {
-    return currencies;
+  public List<CurrencyAccount> getCurrencyAccounts() {
+    return currencyAccounts;
   }
 
-  public void setCurrencies(List<Currency> currencies) {
-    this.currencies = currencies;
+  public void setCurrencyAccounts(List<CurrencyAccount> currencyAccounts) {
+    this.currencyAccounts = currencyAccounts;
   }
 }
