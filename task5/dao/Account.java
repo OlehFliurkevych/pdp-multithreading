@@ -1,11 +1,12 @@
 package task5.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author Oleh Fliurkevych
  */
-public class Account {
+public class Account implements Serializable {
 
   private String accountNumber;
   private List<CurrencyAccount> currencyAccounts;

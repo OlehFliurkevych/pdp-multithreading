@@ -1,11 +1,12 @@
 package task5.dao;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * @author Oleh Fliurkevych
  */
-public class CurrencyAccount {
+public class CurrencyAccount implements Serializable {
   
   private CurrencyType currencyType;
   private BigDecimal amount;
